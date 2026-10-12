@@ -144,7 +144,7 @@ proc render*(path: string) =
     let assets = path / "assets"
     let rendered = path / "rendered"
 
-    var usedAssets = initTables[string]()
+    var usedAssets = initHashSet[string]()
 
     if not dirExists(rendered):
         createDir(rendered)
@@ -162,8 +162,8 @@ proc render*(path: string) =
         writeFile(outputPath , filecontent)
 
     for asset in usedAssets:
-        let relativePath = relativePath(asset, assets)
-        let destination = rendered / "assets" / relativePath
+        let assetRelativePath = relativePath(asset, assets)
+        let destination = rendered / "assets" / assetRelativePath
 
         createDir(destination.parentDir())
         copyFile(asset, destination)
