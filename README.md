@@ -9,7 +9,7 @@ Therefore, this framework is born to bake JSON data straight to HTML while also 
 
 ## How to build
 In order to build FurtexWave, you need to have
-- Nim above version 2.2.12
+- Nim version 2.2.12 or above
 - Nimble
 - MingGW
 
